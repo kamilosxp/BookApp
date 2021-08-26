@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using BookApp.Services;
 using BookApp.Views;
+using AppContext = BookApp.Services.AppContext;
+using BookApp.Models;
 
 namespace BookApp
 {
@@ -15,6 +17,16 @@ namespace BookApp
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
+
+            var db = new AppContext();
+
+            var user = new User();
+
+            user.Login = "test";
+
+            db.Users.Add(user);
+            db.SaveChanges();
+
         }
 
         protected override void OnStart()
