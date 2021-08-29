@@ -8,15 +8,15 @@ using Xamarin.Forms;
 
 namespace BookApp.ViewModels
 {
-    public class LoginViewModel : BaseViewModel, INotifyPropertyChanged
+    public class RegisterViewModel : BaseViewModel, INotifyPropertyChanged
     {
-        public Command LoginCommand { get; }
+        public Command RegisterCommand { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public LoginViewModel()
+        public RegisterViewModel()
         {
-            LoginCommand = new Command(OnLoginClicked);
+            RegisterCommand = new Command(OnLoginClicked);
         }
 
         private async void OnLoginClicked(object obj)

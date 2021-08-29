@@ -16,7 +16,7 @@ namespace BookApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
 
             var db = new AppContext();
 
