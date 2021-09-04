@@ -27,6 +27,4 @@
                     BackgroundColor="#088da5" />  
         </StackLayout>  
     </ContentPage.Content>  
-</ContentPage>  
-    </ContentPage.Content>
-</ContentPage>
+</ContentPage> 

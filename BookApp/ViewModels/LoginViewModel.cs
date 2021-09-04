@@ -12,7 +12,9 @@ namespace BookApp.ViewModels
     {
         public Command LoginCommand { get; }
 
+#pragma warning disable CS0108 // 'LoginViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0108 // 'LoginViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
 
         public LoginViewModel()
         {
@@ -32,7 +34,9 @@ namespace BookApp.ViewModels
 
         }
 
+#pragma warning disable CS0108 // 'LoginViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+#pragma warning restore CS0108 // 'LoginViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
