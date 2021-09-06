@@ -4,41 +4,48 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using BookApp.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Xamarin.Forms;
 
 namespace BookApp.ViewModels
 {
-    public class LoginViewModel : BaseViewModel, INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
         public Command LoginCommand { get; }
+        public Command RegisterCommand { get; }
 
-#pragma warning disable CS0108 // 'LoginViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore CS0108 // 'LoginViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
-
+        public INavigation Navigation { get; set; }
+        private readonly User _user;
         public LoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
+            RegisterCommand = new Command(OnRegisterClicked);
+
+            _user = new User();
         }
 
         private async void OnLoginClicked(object obj)
         {
-            new Exception("dsadsad");
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
-
-
-        private void RegisterUser()
+        private async void OnRegisterClicked(object obj)
         {
-
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            //await Shell.Current.GoToAsync($"//{nameof(RegisterView)}");
+            //await Navigation.PushAsync(new RegisterView());
+            Application.Current.MainPage = new RegisterView();
         }
 
-#pragma warning disable CS0108 // 'LoginViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-#pragma warning restore CS0108 // 'LoginViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
+        public string Email
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get => _user.Email;
+            set
+            {
+                _user.Email = value;
+                OnPropertyChanged("Email");
+            }
         }
     }
 }

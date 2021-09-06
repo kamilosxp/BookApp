@@ -2,43 +2,103 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using BookApp.Models;
 using Xamarin.Forms;
+using AppContext = BookApp.Services.AppContext;
 
 namespace BookApp.ViewModels
 {
-    public class RegisterViewModel : BaseViewModel, INotifyPropertyChanged
+    public class RegisterViewModel : BaseViewModel
     {
         public Command RegisterCommand { get; }
-
-#pragma warning disable CS0108 // 'RegisterViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore CS0108 // 'RegisterViewModel.PropertyChanged' hides inherited member 'BaseViewModel.PropertyChanged'. Use the new keyword if hiding was intended.
+        private readonly User _user;
+        private String _password2 { get; set; }
+        private AppContext _context;
 
         public RegisterViewModel()
         {
-            RegisterCommand = new Command(OnLoginClicked);
+            RegisterCommand = new Command(OnRegisterClicked);
+            _user = new User();
+            _context = new AppContext();
         }
 
-        private async void OnLoginClicked(object obj)
+        private async void OnRegisterClicked(object obj)
         {
-            new Exception("dsadsad");
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            RegisterUser();
         }
 
 
-        private void RegisterUser()
+        private bool RegisterUser()
         {
+            if (String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(Password2))
+                return false;
 
+            if (IsValidEmail(Email) && Password.Equals(Password2))
+            {
+                if (IsUserExist(Email))
+                    return false;
+
+
+
+                return true;
+            }
+
+            return false;
         }
 
-#pragma warning disable CS0108 // 'RegisterViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-#pragma warning restore CS0108 // 'RegisterViewModel.OnPropertyChanged(string)' hides inherited member 'BaseViewModel.OnPropertyChanged(string)'. Use the new keyword if hiding was intended.
+        private bool IsUserExist(string email)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var user = _context.Users.FirstOrDefault(a => a.Email == email);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
+        public string Email
+        {
+            get => _user.Email;
+            set
+            {
+                _user.Email = value;
+                OnPropertyChanged("Email");
+            }
+        }
+
+        public string Password
+        {
+            get => _user.Password;
+            set
+            {
+                _user.Password = value;
+                OnPropertyChanged("Password");
+            }
+        }
+
+        public string Password2
+        {
+            get => _password2;
+            set
+            {
+                _password2 = value;
+                OnPropertyChanged("Password2");
+            }
+        }
+
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
