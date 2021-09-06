@@ -12,7 +12,7 @@
             <BoxView HeightRequest="10"/>
             <StackLayout>
                 <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
-                <Label Text="WypożyczKsiążke" HorizontalOptions="Center" FontSize="Medium"></Label>
+                <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium"></Label>
             </StackLayout>
             <Frame BackgroundColor="#088da5" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="10">
@@ -37,7 +37,7 @@
                         BackgroundColor="#088da5" />
             </StackLayout>
 
-            <Label VerticalOptions="End" HorizontalOptions="End" Text="WypożyczKsiążke 2021" FontSize="Small"></Label>
+            <Label VerticalOptions="End" HorizontalOptions="End" Text="WypożyczKsiążkę 2021" FontSize="Small"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

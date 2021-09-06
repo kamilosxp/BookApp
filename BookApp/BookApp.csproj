@@ -13,12 +13,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Images\logo.png" />
+    <None Remove="Assets\Images\logoWhite.png" />
     <None Remove="Assets\Images\menu.png" />
     <None Remove="EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
+    <EmbeddedResource Include="Assets\Images\logoWhite.png" />
     <EmbeddedResource Include="Assets\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>

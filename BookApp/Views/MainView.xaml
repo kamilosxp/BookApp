@@ -25,12 +25,16 @@
                         <TapGestureRecognizer Tapped="OnMenuTapped" />
                     </Image.GestureRecognizers>
                 </Image>
-                <Label Text="Wypożycz Książke"
+                <Label Text="Wypożycz Książkę"
                        TextColor="White"
                        FontSize="22"
-                       FontAttributes="Bold"
                        VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
                        VerticalTextAlignment="Center"/>
+
+                <Image Source="{helpers:ImageResource BookApp.Assets.Images.logoWhite.png}" HeightRequest="35" WidthRequest="35"
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+
             </StackLayout>
         </Grid>
 

@@ -55,7 +55,7 @@
             </StackLayout>
 
             <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
-                <Label Text="Wypożycz Książke 2021" TextColor="White" />
+                <Label Text="Wypożycz Książkę 2021" TextColor="White" />
             </StackLayout>
         </Grid>
 
