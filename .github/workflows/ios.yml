@@ -28,4 +28,4 @@ jobs:
       run: nuget restore BookApp.sln
 
     - name: Build
-      run: msbuild BookApp/BookApp.iOS/BookApp.Android.csproj /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
+      run: msbuild BookApp/BookApp.iOS/BookApp.iOS.csproj /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
