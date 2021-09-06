@@ -1,31 +1,18 @@
-name: Build Xamarin.iOS app
+name: Build iOS App
 
-on: [push]
-
+on: [push, pull_request]
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  iOS:
+    runs-on: macos-latest    
     steps:
-    - uses: actions/checkout@v2
-    - name: Set default Xamarin SDK versions
+    - name: Checkout repository
+      uses: actions/checkout@v2        
+    - name: iOS Simulator
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
-    
-    - name: Set default Xcode 12.3
-      run: |
-        XCODE_ROOT=/Applications/Xcode_12.3.0.app
-        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
-        sudo xcode-select -s $XCODE_ROOT
-
-    - name: Setup .NET Core SDK 5.0.x
-      uses: actions/setup-dotnet@v1
+        cd Blank
+        nuget restore
+        msbuild BookApp/BookApp.iOS/BookApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug        
+    - uses: actions/upload-artifact@v2
       with:
-        dotnet-version: '5.0.x'
-
-    - name: Install dependencies
-      run: nuget restore BookApp.sln
-
-    - name: Build
-      run: msbuild BookApp/BookApp/BookApp.csproj /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
+        name: iOS Simulator App
+        path: BookApp/BookApp.iOS//bin/iPhoneSimulator/Debug/BookApp.iOS.app        
