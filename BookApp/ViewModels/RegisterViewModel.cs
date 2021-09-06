@@ -41,6 +41,8 @@ namespace BookApp.ViewModels
                 if (IsUserExist(Email))
                     return false;
 
+                ///TODO - DI context
+                _context.Users.Add(_user);
 
 
                 return true;

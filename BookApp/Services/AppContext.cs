@@ -15,7 +15,6 @@ namespace BookApp.Services
 
         public AppContext()
         {
-            //SQLitePCL.Batteries_V2.Init();
             this.Database.OpenConnection();
             this.Database.EnsureCreated();
             //this.Database.Migrate();

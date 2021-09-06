@@ -12,7 +12,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\Images\logo.png" />
     <None Remove="EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Images\logo.png" />
   </ItemGroup>
 </Project>

@@ -3,19 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              mc:Ignorable="d"
              x:Class="BookApp.Views.RegisterView"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
-            <BoxView HeightRequest="10"/>  
-            <Image HorizontalOptions="Center" WidthRequest="300" Source="maco.jpg"/>  
-            <Frame BackgroundColor="#BF043055" HasShadow="False">  
-                <StackLayout Orientation="Vertical" Spacing="10">  
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="30">
+            <BoxView HeightRequest="10"/>
+            <StackLayout>
+                <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
+                <Label Text="WypożyczKsiążke" HorizontalOptions="Center" FontSize="Medium"></Label>
+            </StackLayout>
+            <Frame BackgroundColor="#088da5" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            PlaceholderColor="White" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="White"/>  
+                           TextColor="White"/>
                     <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Hasło"   
                            PlaceholderColor="White" HeightRequest="40"   
                            IsPassword="True"  
@@ -24,11 +28,13 @@
                            PlaceholderColor="White" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="White"/>
-</StackLayout>  
-            </Frame>  
+                </StackLayout>
+            </Frame>
             <Button Command="{Binding RegisterCommand}" Text="Zarejestruj się" TextColor="White"  
-                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" />  
-        </StackLayout>  
-    </ContentPage.Content>  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+
+            <Label VerticalOptions="End" HorizontalOptions="End" Text="WypożyczKsiążke 2021" FontSize="Small"></Label>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage> 
