@@ -10,8 +10,8 @@ jobs:
     - name: iOS Simulator
       run: |
         nuget restore
-        msbuild BookApp/BookApp.iOS/BookApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug        
+        msbuild BookApp.iOS/BookApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug        
     - uses: actions/upload-artifact@v2
       with:
         name: iOS Simulator App
-        path: BookApp/BookApp.iOS//bin/iPhoneSimulator/Debug/BookApp.iOS.app        
+        path: BookApp.iOS//bin/iPhoneSimulator/Debug/BookApp.iOS.app        
