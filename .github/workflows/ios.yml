@@ -9,7 +9,6 @@ jobs:
       uses: actions/checkout@v2        
     - name: iOS Simulator
       run: |
-        cd BookApp
         nuget restore
         msbuild BookApp/BookApp.iOS/BookApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug        
     - uses: actions/upload-artifact@v2
