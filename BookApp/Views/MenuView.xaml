@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#088da5"
+             x:Class="BookApp.Views.MenuView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" Padding="{OnPlatform Android='5, 25', iOS='5, 25, 5, 25'}">
+            <Label Text="Menu"
+                   TextColor="White"
+                   FontSize="25"
+                   HorizontalOptions="CenterAndExpand"/>
+            <BoxView BackgroundColor="White" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+
+        <Grid Grid.Row="1" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Spacing="1"
+                         VerticalOptions="CenterAndExpand">
+                <Button Command="{Binding LoginCommand}" Text="Twoje dane" TextColor="Gray"  
+                        FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
+                <Button Command="{Binding LoginCommand}" Text="Twoje zamówienia" TextColor="Gray"  
+ FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
+                <Button Command="{Binding LoginCommand}" Text="Twoje książki" TextColor="Gray"  
+                        FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
+                <Button Command="{Binding LoginCommand}" Text="Ustawienia" TextColor="Gray"  
+ FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
+                <Button Command="{Binding LoginCommand}" Text="Wyloguj się" TextColor="IndianRed"  
+ FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
+                <Label Text="Wypożycz Książke 2021" TextColor="White" />
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+
+</ContentView>

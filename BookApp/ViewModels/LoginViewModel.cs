@@ -32,6 +32,9 @@ namespace BookApp.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            //To delete
+            Application.Current.MainPage = new ContainerView();
+
             if (IsUserExist(Email))
             {
                 if (CheckPassword(Password, Email))
@@ -40,13 +43,13 @@ namespace BookApp.ViewModels
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Bład!", "Nieprawidłowe hasło!", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
                 }
             }
             else
             {
                 ///TODO - przeniesc do resource
-                await Application.Current.MainPage.DisplayAlert("Bład!", "Nieprawidłowy adres e-mail!", "OK");
+                await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
             }
 
         }
