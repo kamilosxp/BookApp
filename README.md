@@ -1,2 +1,2 @@
 # BookApp
-WypożyczKsiążkę to aplikacja która umożliwia wypożyczanie lub sprzedaż fizycznych książek pomiędzy osobami. Głównym założeniem jest wyświetlanie na mapie w okolicy dostępnych książek które będzie można wypożyczyć w zamian za własną książkę lub opłatę. Będzie możliwe również wyszukiwanie książek w całej Polsce oraz ich wysyłki.
+Lend a book is a mobile application that allows you to borrow your books from other people using this application. The main assumption is the possibility of lending books to people from the area, but it is also possible to send them.
