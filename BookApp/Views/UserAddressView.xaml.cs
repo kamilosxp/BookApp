@@ -5,12 +5,12 @@ using Xamarin.Forms.Xaml;
 
 namespace BookApp.Views
 {
-    public partial class AddBookView : ContentPage
+    public partial class UserAddressView : ContentPage
     {
-        public AddBookView()
+        public UserAddressView()
         {
             InitializeComponent();
-            BindingContext = new AddBookViewModel();
+            BindingContext = new UserAddressViewModel();
         }
     }
 }

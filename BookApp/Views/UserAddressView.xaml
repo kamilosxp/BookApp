@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             Title="{Binding Title}"
+             x:Class="BookApp.Views.UserAddressView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="False">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Imię" FontSize="Small"/>
+                <Entry Text="{Binding Name}" Placeholder="Imię"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Nazwisko" FontSize="Small"/>
+                <Entry Text="{Binding Surname}" Placeholder="Nazwisko"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Adres" FontSize="Small"/>
+                <Entry Text="{Binding Address}" Placeholder="Adres"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Numer domu/mieszkania" FontSize="Small"/>
+                <Entry Text="{Binding HomeNumber}" Placeholder="Numer domu/mieszkania"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Kod pocztowy" FontSize="Small"/>
+                <Entry Text="{Binding Email}" Placeholder="Kod pocztowy"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Miasto" FontSize="Small"/>
+                <Entry Text="{Binding Email}" Placeholder="Miasto"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                <Label Text="Województwo" FontSize="Small"/>
+                <Picker Title="Wybierz województwo"
+        TitleColor="Black">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>dolnośląskie</x:String>
+                            <x:String>kujawsko-pomorskie</x:String>
+                            <x:String>lubelskie</x:String>
+                            <x:String>lubuskie</x:String>
+                            <x:String>łódzkie</x:String>
+                            <x:String>małopolskie</x:String>
+                            <x:String>mazowieckie</x:String>
+                            <x:String>opolskie</x:String>
+                            <x:String>podkarpackie</x:String>
+                            <x:String>podlaskie</x:String>
+                            <x:String>pomorskie</x:String>
+                            <x:String>śląskie</x:String>
+                            <x:String>świętokrzyskie</x:String>
+                            <x:String>warmińsko-mazurskie</x:String>
+                            <x:String>wielkopolskie</x:String>
+                            <x:String>zachodniopomorskie</x:String>
+
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Command="{Binding LoginCommand}" Text="Zapisz" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+                    BackgroundColor="#088da5" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>

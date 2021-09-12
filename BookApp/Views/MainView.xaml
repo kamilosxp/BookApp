@@ -13,11 +13,19 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="one.png" Title="Twoje dane">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
+        <Tab Icon="one.png" Title="Strona Główna">
+            <ShellContent ContentTemplate="{DataTemplate local:MainUserView}"/>
         </Tab>
 
+    </FlyoutItem>
 
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="one.png" Title="Twoje dane">
+            <ShellContent ContentTemplate="{DataTemplate local:UserAddressView}"/>
+        </Tab>
 
     </FlyoutItem>
     <FlyoutItem Title="MyTabApp"
@@ -34,16 +42,7 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="two.png" Title="Twoje zamówienia">
-            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
-        </Tab>
-    </FlyoutItem>
-
-    <FlyoutItem Title="MyTabApp"
-               Shell.TabBarIsVisible="False"
-               FlyoutDisplayOptions="AsMultipleItems">
-
-        <Tab Icon="two.png" Title="Twoje książki">
-            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:OrdersView}"/>
         </Tab>
     </FlyoutItem>
 
@@ -52,7 +51,7 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="two.png" Title="Ustawienia">
-            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsView}"/>
         </Tab>
     </FlyoutItem>
 
@@ -61,7 +60,7 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="two.png" Title="Wyloguj">
-            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
         </Tab>
     </FlyoutItem>
 
