@@ -1,50 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
-             mc:Ignorable="d"
-             BackgroundColor="White"
-             x:Class="BookApp.Views.MainView">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Shell 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:BookApp.Views"
+    x:Class="BookApp.Views.MainView">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <StackLayout Margin="0, 0, 0, 0" 
-                         Padding="{OnPlatform Android='10, 15', iOS='10, 40, 10, 15'}"
-                         Orientation="Horizontal"
-                         BackgroundColor="#088da5"
-                         Spacing="15">
-                <Image Source="{helpers:ImageResource BookApp.Assets.Images.menu.png}" HeightRequest="35" WidthRequest="35"
-                       VerticalOptions="CenterAndExpand">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnMenuTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label Text="Wypożycz Książkę"
-                       TextColor="White"
-                       FontSize="22"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalTextAlignment="Center"/>
+    <Shell.FlyoutHeader>
+        <local:HeaderContentView/>
+    </Shell.FlyoutHeader>
 
-                <Image Source="{helpers:ImageResource BookApp.Assets.Images.logoWhite.png}" HeightRequest="35" WidthRequest="35"
-                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
 
-            </StackLayout>
-        </Grid>
+        <Tab Icon="one.png" Title="Twoje dane">
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
+        </Tab>
 
-        <StackLayout Grid.Row="1">
-            <Label Text="TODO!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Center"/>
-        </StackLayout>
-    </Grid>
 
-</ContentView>
+
+    </FlyoutItem>
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="two.png" Title="Wystaw książkę">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="two.png" Title="Twoje zamówienia">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="two.png" Title="Twoje książki">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="two.png" Title="Ustawienia">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="MyTabApp"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="two.png" Title="Wyloguj">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

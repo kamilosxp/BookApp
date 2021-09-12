@@ -12,23 +12,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Assets\Images\logo.png" />
-    <None Remove="Assets\Images\logoWhite.png" />
-    <None Remove="Assets\Images\menu.png" />
-    <None Remove="EntityFramework" />
-    <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
     <EmbeddedResource Include="Assets\Images\logoWhite.png" />
-    <EmbeddedResource Include="Assets\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ContainerView.xaml.cs">
-      <DependentUpon>ContainerView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

@@ -40,6 +40,9 @@
                 <Button Command="{Binding LoginCommand}" Text="Twoje dane" TextColor="Gray"  
                         FontSize="Small" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="Azure" />
+                <Button Command="{Binding AddBook}" Text="Wystaw książkę" TextColor="Gray"  
+                        FontSize="Small" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Azure" />
                 <Button Command="{Binding LoginCommand}" Text="Twoje zamówienia" TextColor="Gray"  
  FontSize="Small" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="Azure" />

@@ -19,13 +19,6 @@ namespace BookApp
             
             MainPage = new LoginPage();
 
-            var db = new AppContext();
-
-            var user = new User();
-            user.Email = "dsad";
-
-            db.Users.Add(user);
-            db.SaveChanges();
         }
 
         protected override void OnStart()
