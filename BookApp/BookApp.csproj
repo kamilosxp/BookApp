@@ -10,14 +10,24 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="FluentValidation" Version="10.3.3" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
     <EmbeddedResource Include="Assets\Images\logoWhite.png" />
+    <EmbeddedResource Include="Assets\Images\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Images\settings.png" />
+    <None Remove="FluentValidation" />
+    <None Remove="Validators\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validators\" />
   </ItemGroup>
 </Project>

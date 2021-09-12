@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:BookApp.Views"
+    xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
     x:Class="BookApp.Views.MainView">
 
     <Shell.FlyoutHeader>
@@ -23,18 +24,19 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="one.png" Title="Twoje dane">
-            <ShellContent ContentTemplate="{DataTemplate local:UserAddressView}"/>
+        <Tab Icon="two.png" Title="Wystaw książkę">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
         </Tab>
-
     </FlyoutItem>
+
     <FlyoutItem Title="MyTabApp"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="two.png" Title="Wystaw książkę">
-            <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
+        <Tab Icon="one.png" Title="Twoje dane">
+            <ShellContent ContentTemplate="{DataTemplate local:UserAddressView}"/>
         </Tab>
+
     </FlyoutItem>
 
     <FlyoutItem Title="MyTabApp"
@@ -50,7 +52,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="two.png" Title="Ustawienia">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.settings.png}" Title="Ustawienia">
             <ShellContent ContentTemplate="{DataTemplate local:SettingsView}"/>
         </Tab>
     </FlyoutItem>

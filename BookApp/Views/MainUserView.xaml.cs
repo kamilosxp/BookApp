@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using BookApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,7 @@ namespace BookApp.Views
         public MainUserView()
         {
             InitializeComponent();
+            BindingContext = new MainUserViewModel();
         }
     }
 }
