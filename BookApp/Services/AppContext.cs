@@ -12,6 +12,10 @@ namespace BookApp.Services
     public sealed class AppContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Offer> Offers { get; set; }
 
         public AppContext()
         {
@@ -22,7 +26,7 @@ namespace BookApp.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string databaseName = "database.db";
+            string databaseName = "database2.db";
             string databasePath = String.Empty;
 
             switch (Device.RuntimePlatform)

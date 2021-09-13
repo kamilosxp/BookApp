@@ -8,6 +8,7 @@ using System.Text;
 using BookApp.Models;
 using Xamarin.Forms;
 using AppContext = BookApp.Services.AppContext;
+using BookApp.Services;
 
 namespace BookApp.ViewModels
 {
@@ -15,14 +16,16 @@ namespace BookApp.ViewModels
     {
         public Command RegisterCommand { get; }
         private readonly User _user;
-        private String _password2 { get; set; }
+        private string _password2 { get; set; }
         private AppContext _context;
+        private readonly IUserService _userService;
 
         public RegisterViewModel()
         {
             RegisterCommand = new Command(OnRegisterClicked);
             _user = new User();
             _context = new AppContext();
+            _userService = new UserService(_context);
         }
 
         private async void OnRegisterClicked(object obj)
@@ -31,24 +34,35 @@ namespace BookApp.ViewModels
         }
 
 
-        private bool RegisterUser()
+        private async void RegisterUser()
         {
-            if (String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(Password2))
-                return false;
-
-            if (IsValidEmail(Email) && Password.Equals(Password2))
+            try
             {
-                if (IsUserExist(Email))
-                    return false;
+                if (String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(Password2))
+                    return;
 
-                ///TODO - DI context
-                _context.Users.Add(_user);
+                if (IsValidEmail(Email) && Password.Equals(Password2))
+                {
+                    //if (_userService.IsUserExist(Email))
+                    //    throw new Exception("User already exist!");
 
+                    ///TODO - DI context
+                    var created = _userService.AddUser(_user);
 
-                return true;
+                    if(created)
+                    {
+                        Application.Current.MainPage = new MainView();
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Błąd!", "Nie udało utworzyć się konta!", "OK");
+                    }
+                }
             }
+            catch(Exception)
+            {
 
-            return false;
+            }
         }
 
         private bool IsUserExist(string email)

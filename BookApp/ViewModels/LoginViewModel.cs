@@ -9,6 +9,7 @@ using BookApp.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Xamarin.Forms;
 using AppContext = BookApp.Services.AppContext;
+using BookApp.Services;
 
 namespace BookApp.ViewModels
 {
@@ -20,6 +21,7 @@ namespace BookApp.ViewModels
         public INavigation Navigation { get; set; }
         private readonly User _user;
         private readonly AppContext _context;
+        private readonly IUserService _userService;
 
         public LoginViewModel()
         {
@@ -28,48 +30,33 @@ namespace BookApp.ViewModels
 
             _user = new User();
             _context = new AppContext();
+            _userService = new UserService(_context);
         }
 
         private async void OnLoginClicked(object obj)
         {
             //To delete
-            Application.Current.MainPage = new MainView();
+            //Application.Current.MainPage = new MainView();
 
-            //if (IsUserExist(Email))
-            //{
-            //    if (CheckPassword(Password, Email))
-            //    {
-            //        ///TODO - kolejny ekran
-            //    }
-            //    else
-            //    {
-            //        await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
-            //    }
-            //}
-            //else
-            //{
-            //    ///TODO - przeniesc do resource
-            //    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
-            //}
+            if (_userService.IsUserExist(Email))
+            {
+                if (_userService.IsPasswordCorrect(Email, Password))
+                {
+                    Application.Current.MainPage = new MainView();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
+                }
+            }
+            else
+            {
+                ///TODO - przeniesc do resource
+                await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
+            }
 
         }
 
-        private bool IsUserExist(string email)
-        {
-            var users = _context.Users.ToList();
-            var exist = users.Exists(a => a.Email == email);
-
-            return exist != true;
-        }
-
-        private bool CheckPassword(string enteredPass, string email)
-        {
-            var users = _context.Users.ToList();
-            var user = users.FirstOrDefault(a => a.Email == email);
-            var correctPassword = user != null && user.Password == enteredPass;
-
-            return correctPassword;
-        }
         private async void OnRegisterClicked(object obj)
         {
             Application.Current.MainPage = new RegisterView();

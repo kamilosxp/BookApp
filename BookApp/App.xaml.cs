@@ -16,7 +16,6 @@ namespace BookApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            
             MainPage = new LoginPage();
 
         }
