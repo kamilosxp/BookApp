@@ -22,8 +22,8 @@ namespace BookApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            //SQLitePCL.Batteries_V2.Init();
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyAgor3wGJ6n41IW-ATQkNBVoABxKe2LS1A");
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

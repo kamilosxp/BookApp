@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookApp.Views.MainUserView"
-             xmlns:vm="clr-namespace:BookApp.ViewModels"
+             xmlns:vm="clr-namespace:BookApp.ViewModels" BackgroundColor="#d7dee9"  xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
@@ -21,15 +21,11 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="100" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
+        <!--<StackLayout Orientation="Horizontal">
+            <maps:Map x:Name="map" HasZoomEnabled="True" MapType="Street" IsShowingUser="True" HeightRequest="200" HorizontalOptions="FillAndExpand" ></maps:Map>
+        </StackLayout>-->
 
-        <StackLayout Grid.Row="1" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+        <StackLayout Grid.Row="1" Orientation="Vertical" Padding="30,24,30,24" Spacing="10" >
             <Label Text="Witaj Kamil Rudek" FontSize="Large"/>
             <Label Text="Liczba aktualnie wypożyczonych przez Ciebie książek: 0" FontSize="13" Padding="0,0,0,0"/>
 
@@ -37,23 +33,22 @@
         </StackLayout>
 
         <ScrollView Grid.Row="2">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Dupa "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
+            <StackLayout Orientation="Vertical" Spacing="10" BackgroundColor="#8cbbf1">
+                <Label Padding="30,14,30,14" Text="Aktywne oferty" FontSize="Large"/>
+
+                <ListView ItemsSource="{Binding Offers}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5,0,5,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                    <Image Source="{Binding Book.ImageURL}" WidthRequest="70" HeightRequest="80"  />
+                                    <Label Text="{Binding Book.Name}" VerticalTextAlignment="Center" FontSize="Medium" />
+                                    <Label Text="{Binding Book.Price}" VerticalTextAlignment="Center" HorizontalOptions="End" FontSize="Medium" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </Grid>

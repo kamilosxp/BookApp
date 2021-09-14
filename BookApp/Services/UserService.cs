@@ -16,8 +16,16 @@ namespace BookApp.Services
 
         public bool AddUser(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            try
+            {
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -44,7 +52,7 @@ namespace BookApp.Services
         {
             var users = _context.Users.ToList();
             var exist = users.Exists(a => a.Email == email);
-            return exist != true;
+            return exist == true;
         }
 
         public bool IsUserExist(int id)

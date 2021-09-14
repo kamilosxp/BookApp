@@ -18,11 +18,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
     <EmbeddedResource Include="Assets\Images\logoWhite.png" />
     <EmbeddedResource Include="Assets\Images\settings.png" />
+    <EmbeddedResource Include="Assets\Images\home.png" />
+    <EmbeddedResource Include="Assets\Images\information.png" />
+    <EmbeddedResource Include="Assets\Images\logout.png" />
+    <EmbeddedResource Include="Assets\Images\order.png" />
+    <EmbeddedResource Include="Assets\Images\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\MainView.xaml.cs">
@@ -42,6 +50,15 @@
     <None Remove="MySql.Data.EntityFrameworkCore" />
     <None Remove="MySqlConnector" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Xamarin.Forms.GoogleMaps" />
+    <None Remove="Xamarin.Build.Download" />
+    <None Remove="Xamarin.Google.iOS.Maps" />
+    <None Remove="Xam.Plugin.Geolocator" />
+    <None Remove="Assets\Images\home.png" />
+    <None Remove="Assets\Images\information.png" />
+    <None Remove="Assets\Images\logout.png" />
+    <None Remove="Assets\Images\order.png" />
+    <None Remove="Assets\Images\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validators\" />

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:BookApp.Views"
     xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
-    x:Class="BookApp.Views.MainView">
+    x:Class="BookApp.Views.MainView" BackgroundColor="#8cbbf1" >
 
     <Shell.FlyoutHeader>
         <local:HeaderContentView/>
@@ -14,7 +14,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="one.png" Title="Strona Główna">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.home.png}" Title="Strona Główna">
             <ShellContent ContentTemplate="{DataTemplate local:MainUserView}"/>
         </Tab>
 
@@ -24,7 +24,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="two.png" Title="Wystaw książkę">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.add.png}" Title="Wystaw książkę">
             <ShellContent ContentTemplate="{DataTemplate local:AddBookView}"/>
         </Tab>
     </FlyoutItem>
@@ -33,7 +33,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="one.png" Title="Twoje dane">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.information.png}" Title="Twoje dane">
             <ShellContent ContentTemplate="{DataTemplate local:UserAddressView}"/>
         </Tab>
 
@@ -43,7 +43,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="two.png" Title="Twoje zamówienia">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.order.png}" Title="Twoje zamówienia">
             <ShellContent ContentTemplate="{DataTemplate local:OrdersView}"/>
         </Tab>
     </FlyoutItem>
@@ -61,7 +61,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="two.png" Title="Wyloguj">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.logout.png}" Title="Wyloguj">
             <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
         </Tab>
     </FlyoutItem>
