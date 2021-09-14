@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using BookApp.Models;
 using Xamarin.Forms;
-using AppContext = BookApp.Services.AppContext;
+using BookAppContext = BookApp.Services.BookAppContext;
 using BookApp.Services;
 
 namespace BookApp.ViewModels
@@ -17,14 +17,14 @@ namespace BookApp.ViewModels
         public Command RegisterCommand { get; }
         private readonly User _user;
         private string _password2 { get; set; }
-        private AppContext _context;
+        private BookAppContext _context;
         private readonly IUserService _userService;
 
         public RegisterViewModel()
         {
             RegisterCommand = new Command(OnRegisterClicked);
             _user = new User();
-            _context = new AppContext();
+            _context = new BookAppContext();
             _userService = new UserService(_context);
         }
 

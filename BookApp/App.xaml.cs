@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using BookApp.Services;
 using BookApp.Views;
-using AppContext = BookApp.Services.AppContext;
+using BookAppContext = BookApp.Services.BookAppContext;
 using BookApp.Models;
 
 namespace BookApp

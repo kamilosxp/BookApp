@@ -8,7 +8,7 @@ using System.Text;
 using BookApp.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Xamarin.Forms;
-using AppContext = BookApp.Services.AppContext;
+using BookAppContext = BookApp.Services.BookAppContext;
 using BookApp.Services;
 
 namespace BookApp.ViewModels
@@ -20,7 +20,7 @@ namespace BookApp.ViewModels
 
         public INavigation Navigation { get; set; }
         private readonly User _user;
-        private readonly AppContext _context;
+        private readonly BookAppContext _context;
         private readonly IUserService _userService;
 
         public LoginViewModel()
@@ -29,31 +29,31 @@ namespace BookApp.ViewModels
             RegisterCommand = new Command(OnRegisterClicked);
 
             _user = new User();
-            _context = new AppContext();
+            _context = new BookAppContext();
             _userService = new UserService(_context);
         }
 
         private async void OnLoginClicked(object obj)
         {
             //To delete
-            //Application.Current.MainPage = new MainView();
+            Application.Current.MainPage = new MainView();
 
-            if (_userService.IsUserExist(Email))
-            {
-                if (_userService.IsPasswordCorrect(Email, Password))
-                {
-                    Application.Current.MainPage = new MainView();
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
-                }
-            }
-            else
-            {
-                ///TODO - przeniesc do resource
-                await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
-            }
+            //if (_userService.IsUserExist(Email))
+            //{
+            //    if (_userService.IsPasswordCorrect(Email, Password))
+            //    {
+            //        Application.Current.MainPage = new MainView();
+            //    }
+            //    else
+            //    {
+            //        await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
+            //    }
+            //}
+            //else
+            //{
+            //    ///TODO - przeniesc do resource
+            //    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
+            //}
 
         }
 

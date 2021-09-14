@@ -7,9 +7,9 @@ namespace BookApp.Services
 {
     public class UserService : IUserService
     {
-        private readonly AppContext _context;
+        private readonly BookAppContext _context;
 
-        public UserService(AppContext context)
+        public UserService(BookAppContext context)
         {
             _context = context;
         }
@@ -41,10 +41,10 @@ namespace BookApp.Services
 
         public bool IsUserExist(string email)
         {
-            var users = _context.Users.ToList();
-            var exist = users.Exists(a => a.Email == email);
+            var users = _context.Users;
+            //var exist = users.Exists(a => a.Email == email);
 
-            return exist != true;
+            return true;
         }
 
         public bool IsUserExist(int id)

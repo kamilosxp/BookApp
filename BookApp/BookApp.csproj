@@ -11,6 +11,7 @@
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
     <PackageReference Include="FluentValidation" Version="10.3.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.1.1" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
@@ -26,8 +27,15 @@
     <None Remove="Assets\Images\settings.png" />
     <None Remove="FluentValidation" />
     <None Remove="Validators\" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="Migrations\" />
+    <None Remove="System.Linq" />
+    <None Remove="System.Linq.Expressions" />
+    <None Remove="EntityFramework6.Npgsql" />
+    <None Remove="Npgsql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validators\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

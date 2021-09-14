@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Android", "BookApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Tests", "BookApp.Tests\BookApp.Tests.csproj", "{4BBD9B26-F4BF-416A-93AC-628A9539003D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Console", "BookApp.Console\BookApp.Console.csproj", "{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,18 @@ Global
 		{4BBD9B26-F4BF-416A-93AC-628A9539003D}.Release|iPhone.Build.0 = Release|Any CPU
 		{4BBD9B26-F4BF-416A-93AC-628A9539003D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{4BBD9B26-F4BF-416A-93AC-628A9539003D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|iPhone.Build.0 = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{CA0EA38F-27E4-4C52-B74B-6F2CB5C66008}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
