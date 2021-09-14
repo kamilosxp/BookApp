@@ -6,6 +6,7 @@ using BookApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using MySql.Data.EntityFrameworkCore.Extensions;
 
 namespace BookApp.Services
 {
@@ -24,9 +25,14 @@ namespace BookApp.Services
             //this.Database.Migrate();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseNpgsql("Host=localhost;Database=bookapp;User ID=postgres;Password=qwe123;port=5432");
+        //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //=> optionsBuilder.UseNpgsql("Host=localhost;Database=bookapp;User ID=postgres;Password=qwe123;port=5432");
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+   optionsBuilder.UseMySQL("server=localhost;database=bookapp;user=root;password=rootqwe123;port=3306");
+        }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
