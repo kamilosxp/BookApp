@@ -1,15 +1,11 @@
 ﻿using BookApp.Views;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using BookApp.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Xamarin.Forms;
 using BookAppContext = BookApp.Services.BookAppContext;
 using BookApp.Services;
+using BookApp.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookApp.ViewModels
 {
@@ -38,22 +34,26 @@ namespace BookApp.ViewModels
             //To delete
             Application.Current.MainPage = new MainView();
 
-            //if (_userService.IsUserExist(Email))
-            //{
-            //    if (_userService.IsPasswordCorrect(Email, Password))
-            //    {
-            //        Application.Current.MainPage = new MainView();
-            //    }
-            //    else
-            //    {
-            //        await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
-            //    }
-            //}
-            //else
-            //{
-            //    ///TODO - przeniesc do resource
-            //    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
-            //}
+            if (_userService.IsUserExist(Email))
+            {
+                if (_userService.IsPasswordCorrect(Email, Password))
+                {
+                    ///TODO - we need pass model with relation tables
+                    ///
+                    //var user = _context.Users.FirstOrDefault(a => a.Email == Email)
+                    ActiveUser.SetUser(_context.Users.Include("Address").FirstOrDefault(a=>a.Email == Email));
+                    Application.Current.MainPage = new MainView();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
+                }
+            }
+            else
+            {
+                ///TODO - przeniesc do resource
+                await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
+            }
 
         }
 

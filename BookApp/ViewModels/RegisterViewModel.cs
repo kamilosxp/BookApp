@@ -9,6 +9,7 @@ using BookApp.Models;
 using Xamarin.Forms;
 using BookAppContext = BookApp.Services.BookAppContext;
 using BookApp.Services;
+using BookApp.Helpers;
 
 namespace BookApp.ViewModels
 {
@@ -51,6 +52,7 @@ namespace BookApp.ViewModels
 
                     if(created)
                     {
+                        ActiveUser.SetUser(_user);
                         Application.Current.MainPage = new MainView();
                     }
                     else

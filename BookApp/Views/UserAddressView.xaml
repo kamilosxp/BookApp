@@ -34,17 +34,17 @@
                            Keyboard="Email"  
                            TextColor="Black"/>
                 <Label Text="Numer domu/mieszkania" FontSize="Small"/>
-                <Entry Text="{Binding HomeNumber}" Placeholder="Numer domu/mieszkania"   
+                <Entry Text="{Binding HouseAndFlatNumber}" Placeholder="Numer domu/mieszkania"   
                            PlaceholderColor="Black" HeightRequest="40"   
                            Keyboard="Email"  
                            TextColor="Black"/>
                 <Label Text="Kod pocztowy" FontSize="Small"/>
-                <Entry Text="{Binding Email}" Placeholder="Kod pocztowy"   
+                <Entry Text="{Binding PostCode}" Placeholder="Kod pocztowy"   
                            PlaceholderColor="Black" HeightRequest="40"   
                            Keyboard="Email"  
                            TextColor="Black"/>
                 <Label Text="Miasto" FontSize="Small"/>
-                <Entry Text="{Binding Email}" Placeholder="Miasto"   
+                <Entry Text="{Binding City}" Placeholder="Miasto"   
                            PlaceholderColor="Black" HeightRequest="40"   
                            Keyboard="Email"  
                            TextColor="Black"/>
@@ -73,7 +73,7 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Button Command="{Binding LoginCommand}" Text="Zapisz" TextColor="White"  
+                <Button Command="{Binding SaveCommand}" Text="Zapisz" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
                     BackgroundColor="#088da5" />
             </StackLayout>
