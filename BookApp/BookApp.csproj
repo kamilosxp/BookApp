@@ -31,6 +31,9 @@
     <EmbeddedResource Include="Assets\Images\logout.png" />
     <EmbeddedResource Include="Assets\Images\order.png" />
     <EmbeddedResource Include="Assets\Images\add.png" />
+    <EmbeddedResource Include="Assets\Images\buy.png" />
+    <EmbeddedResource Include="Assets\Images\book.jpeg" />
+    <EmbeddedResource Include="Assets\Images\info.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\MainView.xaml.cs">
@@ -59,9 +62,14 @@
     <None Remove="Assets\Images\logout.png" />
     <None Remove="Assets\Images\order.png" />
     <None Remove="Assets\Images\add.png" />
+    <None Remove="Assets\Images\buy.png" />
+    <None Remove="Assets\Images\book.jpeg" />
+    <None Remove="Assets\Images\info.png" />
+    <None Remove="Views\Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validators\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Views\Converters\" />
   </ItemGroup>
 </Project>

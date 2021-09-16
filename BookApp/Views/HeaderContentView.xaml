@@ -6,7 +6,7 @@
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp">
 
     <ContentView.Content>
-            <StackLayout BackgroundColor="#8cbbf1">
+            <StackLayout>
                 <Image Source="{helpers:ImageResource BookApp.Assets.Images.header_background.jpeg}" />
                 <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
                 <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium"></Label>

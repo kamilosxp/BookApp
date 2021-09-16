@@ -3,14 +3,16 @@ using System;
 using BookApp.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookApp.Migrations
 {
     [DbContext(typeof(BookAppContext))]
-    partial class BookAppContextModelSnapshot : ModelSnapshot
+    [Migration("20210915105409_Migration3")]
+    partial class Migration3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,9 +132,6 @@ namespace BookApp.Migrations
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BuyerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime");
 
@@ -143,9 +142,6 @@ namespace BookApp.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("ForSale")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsBought")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<double>("Latitude")
@@ -170,8 +166,6 @@ namespace BookApp.Migrations
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("BookId");
-
-                    b.HasIndex("BuyerId");
 
                     b.HasIndex("DeliveryOptionsId");
 
@@ -230,10 +224,6 @@ namespace BookApp.Migrations
                     b.HasOne("BookApp.Models.Book", "Book")
                         .WithMany()
                         .HasForeignKey("BookId");
-
-                    b.HasOne("BookApp.Models.User", "Buyer")
-                        .WithMany()
-                        .HasForeignKey("BuyerId");
 
                     b.HasOne("BookApp.Models.DeliveryOptions", "DeliveryOptions")
                         .WithMany()

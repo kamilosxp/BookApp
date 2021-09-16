@@ -19,13 +19,13 @@
         <Frame HasShadow="False">
             <StackLayout Orientation="Vertical" Spacing="10">
                 <Label Text="Nazwa książki*" FontSize="Small"/>
-                <Entry x:Name="title" Text="{Binding Email}" Placeholder="Tytuł"   
+                <Entry x:Name="title" Text="{Binding Name}" Placeholder="Tytuł"   
                            PlaceholderColor="Black" HeightRequest="40"   
                            Keyboard="Email"  
                            TextColor="Black"/>
                 <Label Text="Opis*" FontSize="Small"/>
                 <StackLayout BackgroundColor="LightGray" Padding="1">
-                    <Editor x:Name="description" VerticalOptions="FillAndExpand" HeightRequest="100" Placeholder="Opis" />
+                    <Editor Text="{Binding Description}" x:Name="description" VerticalOptions="FillAndExpand" HeightRequest="100" Placeholder="Opis" />
                 </StackLayout>
                 <Label Text="Kategoria*" FontSize="Small"/>
                 <Picker Title="Wybierz kategorię"
@@ -72,12 +72,50 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
+
+                <Label Text="Sposób wysyłki*" FontSize="Small"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox VerticalOptions="Start">
+                        <CheckBox.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0,-10,0,0" />
+                                <On Platform="Android, WinPhone, Windows" Value="0,-5,0,0" />
+                            </OnPlatform>
+                        </CheckBox.Margin>
+                    </CheckBox>
+                    <Label VerticalTextAlignment="Center" VerticalOptions="Start" Text="Odbiór osobisty">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer>
+
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox VerticalOptions="Start">
+                        <CheckBox.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0,-10,0,0" />
+                                <On Platform="Android, WinPhone, Windows" Value="0,-5,0,0" />
+                            </OnPlatform>
+                        </CheckBox.Margin>
+                    </CheckBox>
+                    <Label VerticalTextAlignment="Center" VerticalOptions="Start" Text="Paczkomat">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer>
+
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
                 <Label Text="Cena książki*" FontSize="Small"/>
-                <Entry x:Name="Price" Text="{Binding Password}" Placeholder="Cena"   
+                <Entry x:Name="Price" Text="{Binding Price}" Placeholder="Cena"   
                            PlaceholderColor="Black" HeightRequest="40"     
                            TextColor="Black"/>
 
-                <Button Command="{Binding LoginCommand}" Text="Wystaw książkę" TextColor="White"  
+                <Button Command="{Binding AddCommand}" Text="Wystaw książkę" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
                     BackgroundColor="#088da5" />
             </StackLayout>

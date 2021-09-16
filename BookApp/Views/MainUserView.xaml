@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookApp.Views.MainUserView"
-             xmlns:vm="clr-namespace:BookApp.ViewModels" BackgroundColor="#d7dee9"  xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:vm="clr-namespace:BookApp.ViewModels" BackgroundColor="#d7dee9"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
+             xmlns:converters="clr-namespace:BookApp.Views.Converters"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
@@ -10,6 +13,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
+        <converters:CurrencyToValueConverter x:Key="CurrencyToValueConverter" />
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
@@ -21,34 +25,47 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--<StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal">
             <maps:Map x:Name="map" HasZoomEnabled="True" MapType="Street" IsShowingUser="True" HeightRequest="200" HorizontalOptions="FillAndExpand" ></maps:Map>
-        </StackLayout>-->
+        </StackLayout>
 
-        <StackLayout Grid.Row="1" Orientation="Vertical" Padding="30,24,30,24" Spacing="10" >
+        <StackLayout Grid.Row="1" Orientation="Vertical" Padding="30,14,30,24" Spacing="10" >
             <Label Text="Witaj Kamil Rudek" FontSize="Large"/>
-            <Label Text="Liczba aktualnie wypożyczonych przez Ciebie książek: 0" FontSize="13" Padding="0,0,0,0"/>
+            <Label Text="Liczba aktualnie wypożyczonych przez Ciebie książek: 0" FontSize="13" />
+            <Label Text="Najbliższy termin oddania książki: Brak" FontSize="13" />
 
             <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#00000" />
         </StackLayout>
 
         <ScrollView Grid.Row="2">
-            <StackLayout Orientation="Vertical" Spacing="10" BackgroundColor="#8cbbf1">
+            <StackLayout Orientation="Vertical" Spacing="10" BackgroundColor="#8cbbf1" HorizontalOptions="FillAndExpand">
                 <Label Padding="30,14,30,14" Text="Aktywne oferty" FontSize="Large"/>
 
-                <ListView ItemsSource="{Binding Offers}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CachingStrategy="RecycleElement">
-                    <ListView.ItemTemplate>
+                <CollectionView ItemsSource="{Binding Offers}">
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Padding="5,0,5,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                    <Image Source="{Binding Book.ImageURL}" WidthRequest="70" HeightRequest="80"  />
-                                    <Label Text="{Binding Book.Name}" VerticalTextAlignment="Center" FontSize="Medium" />
-                                    <Label Text="{Binding Book.Price}" VerticalTextAlignment="Center" HorizontalOptions="End" FontSize="Medium" />
-                                </StackLayout>
-                            </ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                       Source="{Binding Book.ImageURL}" Aspect="AspectFill" HeightRequest="60" WidthRequest="60" />
+                                <Label Grid.Column="1" Text="{Binding Book.Name}" FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                       Grid.Column="1" Text="{Binding Book.Price, Converter={StaticResource CurrencyToValueConverter}}" FontAttributes="Italic" VerticalOptions="End" />
+                                <Image Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="End" Source="{helpers:ImageResource BookApp.Assets.Images.buy.png}"
+                       HeightRequest="40"
+                       WidthRequest="40" />
+                            </Grid>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
         </ScrollView>
     </Grid>

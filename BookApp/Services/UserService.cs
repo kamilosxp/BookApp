@@ -29,6 +29,19 @@ namespace BookApp.Services
             return true;
         }
 
+        public bool ChangePassword(string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ChangePassword(string password, User user)
+        {
+            var usr = _context.Users.FirstOrDefault(a => a.Email == user.Email);
+            usr.Password = password;
+
+            return true;
+        }
+
         public bool DeleteUser(User user)
         {
             throw new NotImplementedException();

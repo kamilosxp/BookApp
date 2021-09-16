@@ -8,10 +8,7 @@ namespace BookApp.Helpers
     {
         private static User _user;
 
-        public static void SetUser(User user)
-        {
-            _user = user;
-        }
+        public static void SetUser(User user) => _user = user;
 
         public static User GetUser() => _user;
 

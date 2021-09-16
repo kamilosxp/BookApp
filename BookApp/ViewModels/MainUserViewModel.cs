@@ -2,32 +2,27 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BookApp.Models;
+using BookApp.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookApp.ViewModels
 {
     public class MainUserViewModel : BaseViewModel
     {
+        private readonly BookAppContext _context;
+        
+        private Offer _offer;
+
         public MainUserViewModel()
         {
             Title = "Strona główna";
+            _context = new BookAppContext();
 
-            //Offers = new ObservableCollection<Offer>();
-
-            //var book = new Book();
-            //book.Name = "ksiazka123";
-            //book.Price = 50.0f;
-            //book.ImageURL = "https://static.wikia.nocookie.net/harrypotter/images/7/7b/Harry01english.jpg";
-
-            //var offer = new Offer();
-            //offer.Book = book;
-
-            //for(int i=0; i < 20; i++)
-            //{
-            //    Offers.Add(offer);
-            //}
-
+            Offers = new ObservableCollection<Offer>();
+            Offers = new ObservableCollection<Offer>(_context.Offers.Include("Book"));
         }
 
 

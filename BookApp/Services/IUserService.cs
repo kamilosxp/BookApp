@@ -11,6 +11,7 @@ namespace BookApp.Services
         bool IsUserExist(string email);
         bool IsUserExist(int id);
         bool IsPasswordCorrect(string email, string enteredPass);
+        bool ChangePassword(string password, User user);
         List<User> GetUsers ();
     }
 }
