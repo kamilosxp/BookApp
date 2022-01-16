@@ -6,35 +6,35 @@
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              mc:Ignorable="d"
              x:Class="BookApp.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False" BackgroundColor="#3498DB">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="30">
             <BoxView HeightRequest="10"/>
             <StackLayout>
-                <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
-                <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium"></Label>
+                <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logoWhite.png}" />
+                <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium" TextColor="White"></Label>
             </StackLayout>
-            <Frame HasShadow="False" HorizontalOptions="FillAndExpand" BackgroundColor="#8cbbf1">
+            <Frame HasShadow="False" HorizontalOptions="FillAndExpand" BackgroundColor="#2980B9">
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                     <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Hasło"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            IsPassword="True"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 </StackLayout>
             </Frame>
             <Button Command="{Binding LoginCommand}" Text="Zaloguj się" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#8cbbf1" />
+                    BackgroundColor="#2980B9" />
 
             <StackLayout>
-                <Label Text="Nie masz jeszcze konta?" HorizontalOptions="Center" Padding="0,20,0,10"></Label>
+                <Label Text="Nie masz jeszcze konta?" TextColor="White" HorizontalOptions="Center" Padding="0,20,0,10"></Label>
                 <Button Command="{Binding RegisterCommand}" Text="Zarejestruj się" TextColor="White"
                         FontAttributes="Bold" FontSize="Small" HorizontalOptions="FillAndExpand" 
-                        BackgroundColor="#8cbbf1" />
+                        BackgroundColor="#2980B9" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

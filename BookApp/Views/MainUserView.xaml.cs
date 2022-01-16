@@ -28,13 +28,32 @@ namespace BookApp.Views
 
             Pin pin = new Pin
             {
-                Label = "Santa Cruz",
-                Address = "The city with a boardwalk",
+                Label = "Harry Potter",
+                Address = "Galeria Kazimierz",
                 Type = PinType.Place,
                 Position = new Position(50.049684, 19.944544)
             };
+
             map.Pins.Add(pin);
 
+            pin = new Pin
+            {
+                Label = "Harry Potter",
+                Address = "Zabłocie",
+                Type = PinType.Place,
+                Position = new Position(50.0470716, 19.9577071)
+            };
+
+            map.Pins.Add(pin);
+
+            pin = new Pin
+            {
+                Label = "Opowieści z Narnii",
+                Address = "Galeria Kazimierz",
+                Type = PinType.Place,
+                Position = new Position(50.0345722, 19.9555089)
+            };
+            map.Pins.Add(pin);
         }
 
     }

@@ -14,7 +14,7 @@
                 <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
                 <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium"></Label>
             </StackLayout>
-            <Frame BackgroundColor="#8cbbf1" HasShadow="False">
+            <Frame BackgroundColor="#2980B9" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            PlaceholderColor="Black" HeightRequest="40"   
@@ -32,7 +32,7 @@
             </Frame>
             <Button Command="{Binding RegisterCommand}" Text="Zarejestruj się" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#8cbbf1" />
+                    BackgroundColor="#2980B9" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage> 

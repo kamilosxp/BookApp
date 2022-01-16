@@ -47,7 +47,7 @@
                        Source="{Binding Book.ImageURL}" Aspect="AspectFill" HeightRequest="60" WidthRequest="60" />
                                 <Label Grid.Column="1" Text="{Binding Book.Name}" FontAttributes="Bold" />
                                 <Label Grid.Row="1"
-                       Grid.Column="1" Text="Ilość dni do oddania książki: Brak" FontAttributes="Italic" VerticalOptions="End" />
+                       Grid.Column="1" FontSize="12" Text="Ilość dni do oddania książki: Brak" FontAttributes="Italic" VerticalOptions="End" />
                                 <Image Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="End" Source="{helpers:ImageResource BookApp.Assets.Images.info.png}"
                        HeightRequest="40"
                        WidthRequest="40" />

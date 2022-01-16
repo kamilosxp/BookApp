@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:BookApp.Views"
     xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
-    x:Class="BookApp.Views.MainView" BackgroundColor="#8cbbf1" >
+    x:Class="BookApp.Views.MainView" BackgroundColor="#3498DB" FlyoutBackgroundColor="#3498DB">
 
     <Shell.FlyoutHeader>
         <local:HeaderContentView/>
@@ -14,7 +14,7 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.home.png}" Title="Strona Główna">
+        <Tab Icon="{helpers:ImageResource BookApp.Assets.Images.home.png}" Title="Strona Główna" >
             <ShellContent ContentTemplate="{DataTemplate local:MainUserView}"/>
         </Tab>
 

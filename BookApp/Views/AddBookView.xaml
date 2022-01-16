@@ -5,31 +5,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              mc:Ignorable="d"
-             BackgroundColor="White"
+             BackgroundColor="#3498DB"
              Title="{Binding Title}"
              x:Class="BookApp.Views.AddBookView">
 
-    <Grid>
+    <Grid BackgroundColor="#3498DB">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
 
-        <Frame HasShadow="False">
+        <Frame HasShadow="False" BackgroundColor="#3498DB">
             <StackLayout Orientation="Vertical" Spacing="10">
                 <Label Text="Nazwa książki*" FontSize="Small"/>
                 <Entry x:Name="title" Text="{Binding Name}" Placeholder="Tytuł"   
-                           PlaceholderColor="Black" HeightRequest="40"   
-                           Keyboard="Email"  
-                           TextColor="Black"/>
+                           PlaceholderColor="#2980B9" HeightRequest="40"    
+                           TextColor="#2980B9"/>
+                <Label Text="ISBN" FontSize="Small"/>
+                <Entry x:Name="isbn" Text="{Binding ISBN}" Placeholder="ISBN"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
+                           TextColor="#2980B9"/>
                 <Label Text="Opis*" FontSize="Small"/>
                 <StackLayout BackgroundColor="LightGray" Padding="1">
-                    <Editor Text="{Binding Description}" x:Name="description" VerticalOptions="FillAndExpand" HeightRequest="100" Placeholder="Opis" />
+                    <Editor Text="{Binding Description}" TextColor="#2980B9" x:Name="description" VerticalOptions="FillAndExpand" HeightRequest="100" Placeholder="Opis" />
                 </StackLayout>
                 <Label Text="Kategoria*" FontSize="Small"/>
                 <Picker Title="Wybierz kategorię"
-        TitleColor="Black">
+        TitleColor="#2980B9" TextColor="#2980B9">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Fajna</x:String>
@@ -110,10 +113,20 @@
                     </Label>
                 </StackLayout>
 
+                <Label Text="Cena za dzień wypożyczenia" FontSize="Small"/>
+                <Entry x:Name="PriceForLend" Text="{Binding Price}" Placeholder="Cena"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"     
+                           TextColor="#2980B9"/>
+
                 <Label Text="Cena książki*" FontSize="Small"/>
-                <Entry x:Name="Price" Text="{Binding Price}" Placeholder="Cena"   
-                           PlaceholderColor="Black" HeightRequest="40"     
-                           TextColor="Black"/>
+                <Entry x:Name="PriceForSell" Text="{Binding Price}" Placeholder="Cena"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"     
+                           TextColor="#2980B9"/>
+
+                <Label Text="Na ile dni maksymalnie chcesz wypożyczyć książkę" FontSize="Small"/>
+                <Entry x:Name="LendTime" Text="{Binding Price}" Placeholder="Cena"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"     
+                           TextColor="#2980B9"/>
 
                 <Button Command="{Binding AddCommand}" Text="Wystaw książkę" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
