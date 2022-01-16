@@ -7,6 +7,7 @@ namespace BookApp.Models
         public string Name { get; set; }
         public float Price { get; set; }
         public string ImageURL { get; set; }
+        public string ISBN { get; set; }
 
         public Category Category { get; set; }
     }

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              mc:Ignorable="d"
-             BackgroundColor="White"
+             BackgroundColor="#3498DB"
              Title="{Binding Title}"
              x:Class="BookApp.Views.SettingsView">
 
@@ -16,22 +16,27 @@
         </Grid.RowDefinitions>
 
 
-        <Frame HasShadow="False">
+        <Frame HasShadow="False" BackgroundColor="#3498DB">
             <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Podaj obecne hasło" FontSize="Small"/>
+                <Entry Text="{Binding Password}" Placeholder="Obecne hasło"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
+                           Keyboard="Email" IsPassword="True" 
+                           TextColor="#2980B9"/>
                 <Label Text="Podaj nowe hasło" FontSize="Small"/>
                 <Entry x:Name="title" Text="{Binding Password}" Placeholder="Nowe hasło"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email" IsPassword="True" 
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Powtórz nowe hasło" FontSize="Small"/>
                 <Entry Text="{Binding Password2}" Placeholder="Powtórz nowe hasło"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email" IsPassword="True"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
 
                 <Button Command="{Binding ChangePasswordCommand}" Text="Zmień hasło" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                    BackgroundColor="#088da5" />
+                    BackgroundColor="#2980B9" />
             </StackLayout>
         </Frame>
     </Grid>

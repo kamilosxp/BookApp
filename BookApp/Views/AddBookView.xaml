@@ -22,7 +22,7 @@
                 <Entry x:Name="title" Text="{Binding Name}" Placeholder="Tytuł"   
                            PlaceholderColor="#2980B9" HeightRequest="40"    
                            TextColor="#2980B9"/>
-                <Label Text="ISBN" FontSize="Small"/>
+                <Label Text="ISBN*" FontSize="Small"/>
                 <Entry x:Name="isbn" Text="{Binding ISBN}" Placeholder="ISBN"   
                            PlaceholderColor="#2980B9" HeightRequest="40"   
                            TextColor="#2980B9"/>

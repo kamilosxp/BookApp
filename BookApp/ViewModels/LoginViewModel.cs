@@ -31,29 +31,31 @@ namespace BookApp.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            //To delete
+            //For test purpose
+            Email = "test@o2.pl";
+            ActiveUser.SetUser(_context.Users.Include("Address").FirstOrDefault(a => a.Email == Email));
             Application.Current.MainPage = new MainView();
 
-            if (_userService.IsUserExist(Email))
-            {
-                if (_userService.IsPasswordCorrect(Email, Password))
-                {
-                    ///TODO - we need pass model with relation tables
-                    ///
-                    //var user = _context.Users.FirstOrDefault(a => a.Email == Email)
-                    ActiveUser.SetUser(_context.Users.Include("Address").FirstOrDefault(a=>a.Email == Email));
-                    Application.Current.MainPage = new MainView();
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
-                }
-            }
-            else
-            {
-                ///TODO - przeniesc do resource
-                await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
-            }
+            //if (_userService.IsUserExist(Email))
+            //{
+            //    if (_userService.IsPasswordCorrect(Email, Password))
+            //    {
+            //        ///TODO - we need pass model with relation tables
+            //        ///
+            //        //var user = _context.Users.FirstOrDefault(a => a.Email == Email)
+            //        ActiveUser.SetUser(_context.Users.Include("Address").FirstOrDefault(a=>a.Email == Email));
+            //        Application.Current.MainPage = new MainView();
+            //    }
+            //    else
+            //    {
+            //        await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowe hasło!", "OK");
+            //    }
+            //}
+            //else
+            //{
+            //    ///TODO - przeniesc do resource
+            //    await Application.Current.MainPage.DisplayAlert("Błąd!", "Nieprawidłowy adres e-mail!", "OK");
+            //}
 
         }
 

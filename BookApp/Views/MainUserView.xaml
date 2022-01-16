@@ -15,7 +15,7 @@
     <ContentPage.Resources>
         <converters:CurrencyToValueConverter x:Key="CurrencyToValueConverter" />
         <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="Accent">#fff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -62,7 +62,7 @@
                        Grid.Column="1" Text="{Binding Book.Price, Converter={StaticResource CurrencyToValueConverter}}" TextColor="White" FontAttributes="Italic" VerticalOptions="End" />
                                 <Label Grid.Row="1"
                        Grid.Column="1" Grid.ColumnSpan="2" Text="Typ oferty: Sprzedaż" TextColor="White" FontAttributes="Italic" FontSize="12" VerticalOptions="StartAndExpand" />
-                                <Image Grid.Column="3" Grid.RowSpan="3" HorizontalOptions="End" Source="{helpers:ImageResource BookApp.Assets.Images.buy.png}"
+                                <Image Grid.Column="3" Grid.RowSpan="3" HorizontalOptions="End" Margin="0,0,15,0" Source="{helpers:ImageResource BookApp.Assets.Images.menu.png}"
                        HeightRequest="40"
                        WidthRequest="40"
                                        VerticalOptions="Center"/>

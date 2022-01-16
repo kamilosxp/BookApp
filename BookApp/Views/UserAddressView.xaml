@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              mc:Ignorable="d"
-             BackgroundColor="White"
+             BackgroundColor="#3498DB"
              Title="{Binding Title}"
              x:Class="BookApp.Views.UserAddressView">
 
@@ -16,41 +16,41 @@
         </Grid.RowDefinitions>
 
 
-        <Frame HasShadow="False">
+        <Frame HasShadow="False" BackgroundColor="#3498DB">
             <StackLayout Orientation="Vertical" Spacing="10">
                 <Label Text="Imię" FontSize="Small"/>
                 <Entry Text="{Binding Name}" Placeholder="Imię"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Nazwisko" FontSize="Small"/>
                 <Entry Text="{Binding Surname}" Placeholder="Nazwisko"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Adres" FontSize="Small"/>
                 <Entry Text="{Binding Address}" Placeholder="Adres"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Numer domu/mieszkania" FontSize="Small"/>
                 <Entry Text="{Binding HouseAndFlatNumber}" Placeholder="Numer domu/mieszkania"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Kod pocztowy" FontSize="Small"/>
                 <Entry Text="{Binding PostCode}" Placeholder="Kod pocztowy"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Miasto" FontSize="Small"/>
                 <Entry Text="{Binding City}" Placeholder="Miasto"   
-                           PlaceholderColor="Black" HeightRequest="40"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
                            Keyboard="Email"  
-                           TextColor="Black"/>
+                           TextColor="#2980B9"/>
                 <Label Text="Województwo" FontSize="Small"/>
                 <Picker Title="Wybierz województwo"
-        TitleColor="Black">
+        TitleColor="#2980B9" TextColor="#2980B9">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>dolnośląskie</x:String>
@@ -75,7 +75,7 @@
                 </Picker>
                 <Button Command="{Binding SaveCommand}" Text="Zapisz" TextColor="White"  
                     FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                    BackgroundColor="#088da5" />
+                    BackgroundColor="#2980B9" />
             </StackLayout>
         </Frame>
     </Grid>

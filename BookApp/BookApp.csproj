@@ -34,6 +34,7 @@
     <EmbeddedResource Include="Assets\Images\buy.png" />
     <EmbeddedResource Include="Assets\Images\book.jpeg" />
     <EmbeddedResource Include="Assets\Images\info.png" />
+    <EmbeddedResource Include="Assets\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\MainView.xaml.cs">
@@ -66,6 +67,7 @@
     <None Remove="Assets\Images\book.jpeg" />
     <None Remove="Assets\Images\info.png" />
     <None Remove="Views\Converters\" />
+    <None Remove="Assets\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validators\" />

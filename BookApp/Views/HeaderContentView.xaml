@@ -8,7 +8,7 @@
     <ContentView.Content>
             <StackLayout>
                 <Image Source="{helpers:ImageResource BookApp.Assets.Images.header_background.jpeg}" />
-                <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logo.png}" />
+                <Image HorizontalOptions="Center" WidthRequest="300" HeightRequest="100" Source="{helpers:ImageResource BookApp.Assets.Images.logoWhite.png}" />
                 <Label Text="WypożyczKsiążkę" HorizontalOptions="Center" FontSize="Medium"></Label>
             </StackLayout>
     </ContentView.Content>
