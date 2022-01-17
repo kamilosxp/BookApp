@@ -8,22 +8,18 @@ using Xamarin.Forms;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using BookApp.Helpers;
-using BookApp.Views;
 
 namespace BookApp.ViewModels
 {
-    public class OrdersViewModel : BaseViewModel
+    public class OrderViewModel : BaseViewModel
     {
         private readonly BookAppContext _context;
         private Offer _offer;
-        public Command OpenOrderCommand { get; }
 
-        public OrdersViewModel()
+        public OrderViewModel()
         {
-            Title = "Twoje zamówienia";
+            Title = "Zamówienie";
             _context = new BookAppContext();
-
-            OpenOrderCommand = new Command(OpenOrder);
 
             Offers = new ObservableCollection<Offer>();
             Offers = new ObservableCollection<Offer>(_context.Offers.Include("Book")
@@ -32,10 +28,5 @@ namespace BookApp.ViewModels
 
 
         public ObservableCollection<Offer> Offers { get; set; }
-
-        private void OpenOrder(object obj)
-        {
-            Application.Current.MainPage = new OrderView();
-        }
     }
 }

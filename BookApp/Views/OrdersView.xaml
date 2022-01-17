@@ -5,11 +5,11 @@
              xmlns:vm="clr-namespace:BookApp.ViewModels"
              xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
              Title="{Binding Title}">
-    
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
@@ -23,12 +23,12 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                    <Image Aspect="AspectFill"  Source="{helpers:ImageResource BookApp.Assets.Images.book.jpeg}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="180" />
+                <Image Aspect="AspectFill"  Source="{helpers:ImageResource BookApp.Assets.Images.book.jpeg}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="180" />
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Spacing="10">
-                            <Label Padding="30,14,30,14" Text="Twoje zamówienia" FontSize="Large"/>
+                <Label Padding="30,14,30,14" Text="Twoje zamówienia" FontSize="Large"/>
 
                 <CollectionView ItemsSource="{Binding Offers}">
                     <CollectionView.ItemTemplate>
@@ -48,9 +48,14 @@
                                 <Label Grid.Column="1" Text="{Binding Book.Name}" FontAttributes="Bold" />
                                 <Label Grid.Row="1"
                        Grid.Column="1" FontSize="12" Text="Ilość dni do oddania książki: Brak" FontAttributes="Italic" VerticalOptions="End" />
-                                <Image Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="End" Source="{helpers:ImageResource BookApp.Assets.Images.info.png}"
+                                <Image Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="End"  Source="{helpers:ImageResource BookApp.Assets.Images.info.png}"
                        HeightRequest="40"
-                       WidthRequest="40" />
+                       WidthRequest="40" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding OpenOrderCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

@@ -32,7 +32,7 @@ namespace BookApp.Views
                 Address = "Galeria Kazimierz",
                 Type = PinType.Place,
                 Position = new Position(50.049684, 19.944544)
-            };
+        };
 
             map.Pins.Add(pin);
 

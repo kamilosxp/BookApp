@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:BookApp.Helpers;assembly=BookApp"
+             mc:Ignorable="d"
+             BackgroundColor="#3498DB"
+             Title="{Binding Title}"
+             x:Class="BookApp.Views.OrderView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="False" BackgroundColor="#3498DB">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Podaj obecne hasło" FontSize="Small"/>
+                <Entry Text="{Binding Password}" Placeholder="Obecne hasło"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
+                           Keyboard="Email" IsPassword="True" 
+                           TextColor="#2980B9"/>
+                <Label Text="Podaj nowe hasło" FontSize="Small"/>
+                <Entry x:Name="title" Text="{Binding Password}" Placeholder="Nowe hasło"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
+                           Keyboard="Email" IsPassword="True" 
+                           TextColor="#2980B9"/>
+                <Label Text="Powtórz nowe hasło" FontSize="Small"/>
+                <Entry Text="{Binding Password2}" Placeholder="Powtórz nowe hasło"   
+                           PlaceholderColor="#2980B9" HeightRequest="40"   
+                           Keyboard="Email" IsPassword="True"  
+                           TextColor="#2980B9"/>
+
+                <Button Command="{Binding ChangePasswordCommand}" Text="Zmień hasło" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+                    BackgroundColor="#2980B9" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>

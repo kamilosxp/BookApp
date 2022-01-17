@@ -9,6 +9,7 @@ namespace BookApp.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            throw new System.Exception();
         }
     }
 }
